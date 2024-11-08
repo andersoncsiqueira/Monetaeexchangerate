@@ -1,1 +1,4 @@
-console.log("oi")
+import { consoles } from "./api";
+
+
+consoles('oi')
