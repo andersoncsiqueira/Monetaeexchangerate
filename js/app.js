@@ -1,4 +1,5 @@
-import { consoles } from "./api";
+import { getPrice, urlLastPrice } from "./api.js";
 
 
-consoles('oi')
+console.log(getPrice(urlLastPrice))
+

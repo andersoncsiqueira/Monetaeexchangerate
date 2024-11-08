@@ -7,10 +7,14 @@
     const response = await fetch(urlLastPrice)
     const datas = await response.json() 
 
-console.log(datas)}
+return datas
+
+}
 
 
-let consoles = oi => console.log(oi)
 
 
-export {consoles}
+
+export { getPrice, urlLastPrice };
+
+
