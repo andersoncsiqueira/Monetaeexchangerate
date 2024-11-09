@@ -1,5 +1,4 @@
-import { getPrice, urlLastPrice } from "./api.js";
+import { } from "./api.js";
 
 
-console.log(getPrice(urlLastPrice))
-
+//getPrice(urlLastPrice)
