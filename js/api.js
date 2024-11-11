@@ -1,10 +1,10 @@
  // API AWESOMEAPI 
 
- const urlLastPrice = "https://economia.awesomeapi.com.br/last/"
+ const urlLastUp = "https://economia.awesomeapi.com.br/last/"
 
 
- const getPrice = async (urlLastPrice,baseCoin,counterCoin) => {
-    const response = await fetch(`${urlLastPrice}${baseCoin}-${counterCoin}`)
+ const getPrice = async (urlLastUp,baseCoin,counterCoin) => {
+    const response = await fetch(`${urlLastUp}${baseCoin}-${counterCoin}`)
     const datas = await response.json() 
 
     const sellPrice = datas[`${baseCoin}${counterCoin}`].bid
@@ -21,6 +21,6 @@ return {sellPrice, callPrice, basePrice }
 
 
 
-export { getPrice, urlLastPrice };
+export { getPrice, urlLastUp };
 
 

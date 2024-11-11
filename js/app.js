@@ -1,4 +1,4 @@
-import { getPrice, urlLastPrice } from "./api.js";
+import { getPrice, urlLastUp } from "./api.js";
 
 
 

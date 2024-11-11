@@ -1,22 +1,37 @@
-import { getPrice, urlLastPrice } from "./api.js";
+import { getPrice, urlLastUp } from "./api.js";
 
 
 
 const coins = [,'BRL','EUR','CAD','GBP','AUD','ARS','CLP']
 
-
-async function makeCoins() {
-
-    let coinsCall = coins.map(async coin => ({
-
-        coin: coin,
-        price: (await getPrice(urlLastPrice,'USD',coin)).basePrice
-    }))
-    
-    console.log(coinsCall,'oi')
-}
+const spreadsSell = {'USD':1.07, 'Eur': 1.07, 'GBP': 1.08}
+const spreadCall =  {'USD':0.8, 'Eur': 0.8, 'GBP': 0.8}
 
 
 
+  const mathOfSell =  async (getPrice,counterCoin,spread) => {
+    let exchangeRate = null
 
-makeCoins()
+        exchangeRate = await getPrice(urlLastUp,'USD',counterCoin)
+        exchangeRate =(Number(exchangeRate.basePrice)*spread).toFixed(2)
+        console.log(exchangeRate)
+        return exchangeRate
+
+  }
+
+
+const mathOfcall =  async (getPrice,counterCoin,spread) => {
+    let exchangeRate = null
+
+        exchangeRate = await getPrice(urlLastUp,'USD',counterCoin)
+        exchangeRate =(Number(exchangeRate.basePrice)/spread).toFixed(2)
+        console.log(exchangeRate)
+        return exchangeRate
+
+  }
+ 
+
+
+
+
+  export { coins, spreadCall, spreadsSell, mathOfSell, mathOfcall }
