@@ -1,37 +1,24 @@
 import { getPrice, urlLastUp } from "./api.js";
 
+const coins = [,'USD','EUR','CAD','GBP','AUD','ARS','CLP','CHF']
 
-
-const coins = [,'USD','EUR','CAD','GBP','AUD','ARS','CLP']
-
-const spreadsSell = {'USD':1.07, 'EUR': 1.07, 'CAD':1.08,'GBP': 1.08,'AUD':1.08,'ARS': 1.08,'CLP': 1.07}
-const spreadCall =  {'USD':0.8, 'EUR': 0.8, 'CAD':0.08,'GBP': 0.8,'AUD':0.8,'ARS': 0.08,'CLP': 0.07}
-
-
+const spreadsSell = {'USD':1.06, 'EUR': 1.06, 'CAD':1.09,'GBP': 1.077,'AUD':1.09,'ARS': 1.75,'CLP': 1.35,'CHF':1.1}
+const spreadCall =  {'USD':1.25, 'EUR': 1.25, 'CAD':1.25,'GBP': 1.2,'AUD':1.25,'ARS': 1.75,'CLP': 1.25,'CHF':1.25}
 
   const mathOfSell =  async (getPrice,counterCoin,spread) => {
     let exchangeRate = null
-
         exchangeRate = await getPrice(urlLastUp,counterCoin,'BRL')
-        exchangeRate =(Number(exchangeRate.basePrice)*spread).toFixed(2)
-       
+        exchangeRate =(Number(exchangeRate.basePrice)*spread*1.011)
+        exchangeRate = exchangeRate < 1 ? exchangeRate.toFixed(4) : exchangeRate.toFixed(2)
         return exchangeRate
-
   }
-
 
 const mathOfcall =  async (getPrice,counterCoin,spread) => {
     let exchangeRate = null
-
         exchangeRate = await getPrice(urlLastUp,counterCoin,'BRL')
-        exchangeRate =(Number(exchangeRate.basePrice)*spread).toFixed(2)
-        
+        exchangeRate =(Number(exchangeRate.basePrice)/spread)
+        exchangeRate = exchangeRate < 1 ? exchangeRate.toFixed(4) : exchangeRate.toFixed(2)
         return exchangeRate
-
   }
  
-
-
-
-
   export { coins, spreadCall, spreadsSell, mathOfSell, mathOfcall }

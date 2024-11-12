@@ -6,47 +6,44 @@ import { getPrice, urlLastUp } from "./api.js";
 
 const creatTable = async () => {
 
-
     const headers = ['Moedas','Venda','Compra']
     const contain = document.querySelector('.container')
-    
     const table = document.createElement('table')
     const thead = document.createElement('thead')
     const tr = document.createElement('tr')
     const tbody = document.createElement('tbody')
     
-
+    
     headers.forEach((header, index)=> {
         let th = document.createElement('th')
         thead.appendChild(th)
         th.innerText = header
-        console.log(thead)
 
     })
 
-
-coins.forEach( async (coin,index )=> {
+coins.forEach( async (coin)=> {
 
        let tr = document.createElement('tr')
        let td0 = document.createElement('td')
        let td1 = document.createElement('td')
        let td2 = document.createElement('td')
+       let td3 = document.createElement('td')
+       let buttonBlockPrice = document.createElement('button')
+
 
        td0.innerText = coin
        td1.innerText = await mathOfSell(getPrice,coin,spreadsSell[`${coin}`])
-       console.log(coin, spreadCall[`${coin}`])
        td2.innerText = await mathOfcall(getPrice,coin, spreadCall[`${coin}`])
        
-
           tr.appendChild(td0)
           tr.appendChild(td1)
           tr.appendChild(td2)
-          console.log(tr)
+       //   tr.appendChild(td3)
+          tr.append(buttonBlockPrice)
           tbody.appendChild(tr)
-          //console.log(tbody)
-    })
 
-   // console.log(tbody)
+
+    })
     
     contain.append(table)
     table.append(thead)
@@ -58,4 +55,21 @@ coins.forEach( async (coin,index )=> {
 }
 
 
-creatTable()
+
+const blockPrice = () => {
+    let allButtons = document.querySelectorAll('button')
+    const newPrice = null
+    const tdSelect = null
+    //tdSelect.innerText = newPrice
+    allButtons.forEach(button => {
+
+        button.addEventListener('click', ()=> console.log(button.previousElementSibling.previousElementSibling))
+    })
+    
+}
+
+
+setTimeout(blockPrice,2000)
+
+
+export { creatTable }
