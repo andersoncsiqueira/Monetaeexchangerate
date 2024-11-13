@@ -60,11 +60,15 @@ const blockPrice = () => {
     let allButtons = document.querySelectorAll('button')
     const newPrice = null
     const tdSelect = null
+    const popup = document.querySelector('.popup-wrapper')
+    const closeButton = document.querySelector('.popup-close')
     //tdSelect.innerText = newPrice
     allButtons.forEach(button => {
 
-        button.addEventListener('click', ()=> console.log(button.previousElementSibling.previousElementSibling))
+        button.addEventListener('click', ()=> popup.style.display = 'block' )
     })
+
+    closeButton.addEventListener('click', () => popup.style.display = 'none')
     
 }
 
