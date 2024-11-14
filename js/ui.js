@@ -62,13 +62,21 @@ const blockPrice = () => {
     const tdSelect = null
     const popup = document.querySelector('.popup-wrapper')
     const closeButton = document.querySelector('.popup-close')
+    const buyer = document.querySelector("#buyer")
+    const sell = document.querySelector('#sell')
+    const buttonPopup = document.querySelector('.buttonPopup')
     //tdSelect.innerText = newPrice
     allButtons.forEach(button => {
 
         button.addEventListener('click', ()=> popup.style.display = 'block' )
     })
 
-    closeButton.addEventListener('click', () => popup.style.display = 'none')
+    closeButton.addEventListener('click', event => popup.style.display = 'none')
+
+    buttonPopup.addEventListener('click', event => {
+        const button = event.target.previousElementSibling.previousElementSibling
+                console.log(buyer.value,sell.value,button)
+    })
     
 }
 
