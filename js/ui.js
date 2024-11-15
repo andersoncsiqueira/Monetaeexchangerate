@@ -76,6 +76,7 @@ const blockPrice = () => {
     buttonPopup.addEventListener('click', event => {
         const button = event.target.previousElementSibling.previousElementSibling
                 console.log(buyer.value,sell.value,button)
+               
     })
     
 }
