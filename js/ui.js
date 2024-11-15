@@ -38,7 +38,7 @@ coins.forEach( async (coin)=> {
           tr.appendChild(td0)
           tr.appendChild(td1)
           tr.appendChild(td2)
-       //   tr.appendChild(td3)
+
           tr.append(buttonBlockPrice)
           tbody.appendChild(tr)
 
@@ -47,7 +47,7 @@ coins.forEach( async (coin)=> {
     
     contain.append(table)
     table.append(thead)
-    thead.append(tr)
+    //.append(tr)
     table.append(tbody)
 
 
@@ -65,17 +65,39 @@ const blockPrice = () => {
     const buyer = document.querySelector("#buyer")
     const sell = document.querySelector('#sell')
     const buttonPopup = document.querySelector('.buttonPopup')
+    let keyCoin = ""
     //tdSelect.innerText = newPrice
     allButtons.forEach(button => {
 
-        button.addEventListener('click', ()=> popup.style.display = 'block' )
+        button.addEventListener('click', event => {
+            
+            popup.style.display = 'block'
+            const titleBlock = document.querySelector('#titleBlock')
+            keyCoin = event.target.previousElementSibling.previousElementSibling.previousElementSibling
+            titleBlock.innerText = keyCoin.innerText 
+        })
     })
 
-    closeButton.addEventListener('click', event => popup.style.display = 'none')
-
+    closeButton.addEventListener('click', event => {
+        event.preventDefault()
+        popup.style.display = 'none'})
+        
     buttonPopup.addEventListener('click', event => {
-        const button = event.target.previousElementSibling.previousElementSibling
-                console.log(buyer.value,sell.value,button)
+       event.preventDefault()
+      // 
+      //  const inputBuyer = event.target.previousElementSibling
+      //  const allTds = document.querySelectorAll('tr')
+//
+      //  allTds.forEach(row => {
+      //    let coinOFToMAth = row.children[0].innerText
+        //    console.log( keyCoin.innerText)
+        //  coinOFToMAth === keyCoin ? row.children[1].innerText = buyer.innerText : row.children[1].innerText
+        //  }
+        
+        
+      //  )
+        
+      // inputBuyer.innerText = buyer.value
     })
     
 }
