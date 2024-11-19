@@ -102,6 +102,7 @@ const blockPrice = () => {
     
 }
 
+let change  = 0
 
 setTimeout(blockPrice,2000)
 
