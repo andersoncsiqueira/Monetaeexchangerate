@@ -78,24 +78,25 @@ const blockPrice = () => {
         })
     })
 
-    closeButton.addEventListener('click', event => {
+    closeButton = closeButton.addEventListener('click', event => {
         event.preventDefault()
         popup.style.display = 'none'})
         
     buttonPopup.addEventListener('click', event => {
        event.preventDefault()
-      // 
-      //  const inputBuyer = event.target.previousElementSibling
-      //  const allTds = document.querySelectorAll('tr')
-//
-      //  allTds.forEach(row => {
-      //    let coinOFToMAth = row.children[0].innerText
-        //    console.log( keyCoin.innerText)
-        //  coinOFToMAth === keyCoin ? row.children[1].innerText = buyer.innerText : row.children[1].innerText
-        //  }
+      
+       const inputBuyer = event.target.previousElementSibling
+       const allTds = document.querySelectorAll('tr')
+
+       allTds.filter(button => !button.classList.contains)
+            .forEach(row => {
+           let coinOFToMAth = row.children[0].innerText
+           console.log( keyCoin.innerText)
+           coinOFToMAth === keyCoin ? row.children[1].innerText = buyer.innerText : row.children[1].innerText
+    }
         
         
-      //  )
+       )
         
       // inputBuyer.innerText = buyer.value
     })
