@@ -9,14 +9,14 @@ const tHead = document.createElement('thead')
 const tBody = document.createElement('tbody')
 const wrapper = document.querySelector('.popup-wrapper')
 const popupClose = document.querySelector('.popup-close')
+const titleBlockCoin = document.querySelector('#titleBlock')
+const buttonBlock = document.querySelector('.buttonPopup')
 
 const setTitleTable = ( title ) =>{
 
     let tdTitle = document.createElement('td')
     tdTitle.innerText = title
     tHead.appendChild(tdTitle)
-    console.log(coins)
-
 }
 
 const renderBodyTable = async ( coin ) => {
@@ -45,7 +45,8 @@ const allButtons = document.querySelectorAll('.button-coins')
 allButtons.forEach(button => {
     button.addEventListener('click', event => {
 
-        console.log(event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText)
+        titleBlockCoin.innerText =  event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText
+        localStorage.setItem(`${event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText}`,`${event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText}`)
         wrapper.style.display = 'block'
         
         })
@@ -59,10 +60,18 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
  table.appendChild(tBody)
  container.appendChild(table)
 
-
-
-
 }
 
+buttonBlock.addEventListener('click', event => {
+    let buyInput = event.target.previousElementSibling.previousElementSibling.previousElementSibling.value
+    let sellInput = event.target.previousElementSibling.value
+
+    let coinToBlocks = document.querySelectorAll('td')
+
+   let teste =  Array.from(coinToBlocks).filter(td => td.innerText === titleBlockCoin.innerText )
+
+   console.log(teste)
+
+})
 
 export { creatTable }
