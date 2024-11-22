@@ -8,7 +8,7 @@ const table = document.createElement('table')
 const tHead = document.createElement('thead')
 const tBody = document.createElement('tbody')
 const wrapper = document.querySelector('.popup-wrapper')
-
+const popupClose = document.querySelector('.popup-close')
 
 const setTitleTable = ( title ) =>{
 
@@ -33,15 +33,11 @@ const renderBodyTable = async ( coin ) => {
     tBody.append(tr)
 }
 
-
 const creatTable = async () => {
 
 titleTHead.forEach(title => setTitleTable(title))
 
 coins.forEach(async (coin) => renderBodyTable(coin))
-
-
-
 
 setTimeout(()=>{
 const allButtons = document.querySelectorAll('.button-coins')
@@ -49,14 +45,13 @@ const allButtons = document.querySelectorAll('.button-coins')
 allButtons.forEach(button => {
     button.addEventListener('click', event => {
 
-        console.log(event.target)
+        console.log(event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText)
         wrapper.style.display = 'block'
         
         })
 })
 
-
-
+popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
 
 },1000)
 
