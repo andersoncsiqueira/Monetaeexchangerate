@@ -24,7 +24,8 @@ const renderBodyTable = async ( coin ) => {
     let tdCoin = document.createElement('td')
     let tdBodySell = document.createElement('td')
     let tdBodyCall = document.createElement('td')
-    let buttonCoins = document.createElement('button')
+    let buttonCoins = document.createElement('button')    
+
     tdCoin.innerText = coin
     tdBodySell.innerText = await mathOfSell(getPrice,coin,spreadsSell[`${coin}`])
     tdBodyCall.innerText = await mathOfcall(getPrice,coin,spreadCall[`${coin}`])
@@ -46,7 +47,7 @@ allButtons.forEach(button => {
     button.addEventListener('click', event => {
 
         titleBlockCoin.innerText =  event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText
-        localStorage.setItem(`${event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText}`,`${event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText}`)
+    //    localStorage.setItem(`${event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText}`,`${event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText}`)
         wrapper.style.display = 'block'
         
         })
@@ -60,9 +61,7 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
  table.appendChild(tBody)
  container.appendChild(table)
 
-}
-
-buttonBlock.addEventListener('click', event => {
+ buttonBlock.addEventListener('click', event => {
     let buyInput = event.target.previousElementSibling.previousElementSibling.previousElementSibling.value
     let sellInput = event.target.previousElementSibling.value
 
@@ -71,10 +70,20 @@ buttonBlock.addEventListener('click', event => {
    let coinToChange =  Array.from(coinToBlocks).filter(td => td.innerText === titleBlockCoin.innerText )
    let coinToChangeBuy = coinToChange[0].nextElementSibling
    let coinToChangeSell = coinToChange[0].nextElementSibling.nextElementSibling
-   
-   buyInput?  coinToChangeBuy.innerText = `${buyInput}` : coinToChangeBuy
-   sellInput? coinToChangeSell.innerText = `${sellInput}`: coinToChangeSell
+
+   localStorage.setItem(`${coinToChange[0].innerText}Key`,"On")
+
+   let switchPrice = localStorage.getItem(`${coinToChange[0].innerText}Key`)
+   console.log(switchPrice,coinToChange[0].innerText)
+
+
+   buyInput?  localStorage.setItem(`${coinToChange[0].innerText}BlockBuy`,`${buyInput}`) : coinToChangeBuy
+
+   sellInput? localStorage.setItem(`${coinToChange[0].innerText}BlockSell`,`${sellInput}`) : coinToChangeSell
 
 })
+
+
+}
 
 export { creatTable }
