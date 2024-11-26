@@ -68,9 +68,12 @@ buttonBlock.addEventListener('click', event => {
 
     let coinToBlocks = document.querySelectorAll('td')
 
-   let teste =  Array.from(coinToBlocks).filter(td => td.innerText === titleBlockCoin.innerText )
-
-   console.log(teste)
+   let coinToChange =  Array.from(coinToBlocks).filter(td => td.innerText === titleBlockCoin.innerText )
+   let coinToChangeBuy = coinToChange[0].nextElementSibling
+   let coinToChangeSell = coinToChange[0].nextElementSibling.nextElementSibling
+   
+   buyInput?  coinToChangeBuy.innerText = `${buyInput}` : coinToChangeBuy
+   sellInput? coinToChangeSell.innerText = `${sellInput}`: coinToChangeSell
 
 })
 
