@@ -3,4 +3,3 @@ import { creatTable } from "./ui.js";
 
 creatTable()
 
-console.log(localStorage)
