@@ -11,6 +11,7 @@ const wrapper = document.querySelector('.popup-wrapper')
 const popupClose = document.querySelector('.popup-close')
 const titleBlockCoin = document.querySelector('#titleBlock')
 const buttonBlock = document.querySelector('.buttonPopup')
+const buttonDisblock = document.querySelector('.buttonPopupDisbloc')
 
 const setTitleTable = ( title ) =>{
 
@@ -26,9 +27,10 @@ const renderBodyTable = async ( coin ) => {
     let tdBodyCall = document.createElement('td')
     let buttonCoins = document.createElement('button')    
 
+  
     tdCoin.innerText = coin
-    tdBodySell.innerText = await mathOfSell(getPrice,coin,spreadsSell[`${coin}`])
-    tdBodyCall.innerText = await mathOfcall(getPrice,coin,spreadCall[`${coin}`])
+    tdBodySell.innerText = localStorage.getItem(`${coin}`) === 'on' ? Number(localStorage.getItem(`${coin}BlockSell`)).toFixed(2): await mathOfSell(getPrice,coin,spreadsSell[`${coin}`])
+    tdBodyCall.innerText = localStorage.getItem(`${coin}`) === 'on' ? Number(localStorage.getItem(`${coin}BlockBuy`)).toFixed(2): await mathOfcall(getPrice,coin,spreadCall[`${coin}`])
     tr.append(tdCoin,tdBodyCall,tdBodySell,buttonCoins)
     buttonCoins.classList.add('button-coins')
     tBody.append(tr)
@@ -47,7 +49,6 @@ allButtons.forEach(button => {
     button.addEventListener('click', event => {
 
         titleBlockCoin.innerText =  event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText
-    //    localStorage.setItem(`${event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText}`,`${event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText}`)
         wrapper.style.display = 'block'
         
         })
@@ -62,28 +63,32 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
  container.appendChild(table)
 
  buttonBlock.addEventListener('click', event => {
-    let buyInput = event.target.previousElementSibling.previousElementSibling.previousElementSibling.value
-    let sellInput = event.target.previousElementSibling.value
 
-    let coinToBlocks = document.querySelectorAll('td')
-
+   let buyInput = event.target.previousElementSibling.previousElementSibling.previousElementSibling.value
+   let sellInput = event.target.previousElementSibling.value
+   let coinToBlocks = document.querySelectorAll('td')
    let coinToChange =  Array.from(coinToBlocks).filter(td => td.innerText === titleBlockCoin.innerText )
    let coinToChangeBuy = coinToChange[0].nextElementSibling
    let coinToChangeSell = coinToChange[0].nextElementSibling.nextElementSibling
-
-   localStorage.setItem(`${coinToChange[0].innerText}Key`,"On")
-
-   let switchPrice = localStorage.getItem(`${coinToChange[0].innerText}Key`)
-   console.log(switchPrice,coinToChange[0].innerText)
-
+   
+   localStorage.setItem(`${coinToChange[0].innerText}`,'on')
+   console.log(`${coinToChange[0].innerText}`)
 
    buyInput?  localStorage.setItem(`${coinToChange[0].innerText}BlockBuy`,`${buyInput}`) : coinToChangeBuy
-
    sellInput? localStorage.setItem(`${coinToChange[0].innerText}BlockSell`,`${sellInput}`) : coinToChangeSell
 
 })
 
+  buttonDisblock.addEventListener('click', event => {
+    event.preventDefault()
+    let coinToBlocks = document.querySelectorAll('td')
+    let coinToChange =  Array.from(coinToBlocks).filter(td => td.innerText === titleBlockCoin.innerText )
+    localStorage.setItem(`${coinToChange[0].innerText}`,'off')
+
+
+  })
 
 }
+
 
 export { creatTable }
