@@ -35,7 +35,7 @@ const renderBodyTable = async ( coin ) => {
     buttonCoins.classList.add('button-coins')
     tBody.append(tr)
 }
-
+  
 const creatTable = async () => {
 
 titleTHead.forEach(title => setTitleTable(title))
@@ -74,9 +74,11 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
    localStorage.setItem(`${coinToChange[0].innerText}`,'on')
    console.log(`${coinToChange[0].innerText}`)
 
-   buyInput?  localStorage.setItem(`${coinToChange[0].innerText}BlockBuy`,`${buyInput}`) : coinToChangeBuy
-   sellInput? localStorage.setItem(`${coinToChange[0].innerText}BlockSell`,`${sellInput}`) : coinToChangeSell
+   buyInput?  localStorage.setItem(`${coinToChange[0].innerText}BlockBuy`,`${(buyInput).replace(',','.')}`) : coinToChangeBuy
+   sellInput? localStorage.setItem(`${coinToChange[0].innerText}BlockSell`,`${sellInput.replace(',','.')}`) : coinToChangeSell
 
+   location.reload()
+  
 })
 
   buttonDisblock.addEventListener('click', event => {
@@ -84,11 +86,12 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
     let coinToBlocks = document.querySelectorAll('td')
     let coinToChange =  Array.from(coinToBlocks).filter(td => td.innerText === titleBlockCoin.innerText )
     localStorage.setItem(`${coinToChange[0].innerText}`,'off')
-
-
+    location.reload()
   })
 
 }
 
+
+setInterval(()=> location.reload(),15000)
 
 export { creatTable }
