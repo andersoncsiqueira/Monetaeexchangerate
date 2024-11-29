@@ -1,5 +1,5 @@
 import { coins, spreadCall, spreadsSell, mathOfSell, mathOfcall} from "./util.js";
-import { getPrice, urlLastUp } from "./api.js";
+import { getPrice,} from "./api.js";
 
 
 const titleTHead= ['moeda','compra', 'venda']
@@ -26,11 +26,14 @@ const renderBodyTable = async ( coin ) => {
     let tdBodySell = document.createElement('td')
     let tdBodyCall = document.createElement('td')
     let buttonCoins = document.createElement('button')    
+    let testToPicWritePriceSell = localStorage.getItem(`${coin}`) === 'on' ? Number(localStorage.getItem(`${coin}BlockSell`)).toFixed(2):
+     await mathOfSell(getPrice,coin,spreadsSell[`${coin}`])
+    let testToPicWritePriceCall = localStorage.getItem(`${coin}`) === 'on' ? Number(localStorage.getItem(`${coin}BlockBuy`)).toFixed(2):
+      await mathOfcall(getPrice,coin,spreadCall[`${coin}`])
 
-  
     tdCoin.innerText = coin
-    tdBodySell.innerText = localStorage.getItem(`${coin}`) === 'on' ? Number(localStorage.getItem(`${coin}BlockSell`)).toFixed(2): await mathOfSell(getPrice,coin,spreadsSell[`${coin}`])
-    tdBodyCall.innerText = localStorage.getItem(`${coin}`) === 'on' ? Number(localStorage.getItem(`${coin}BlockBuy`)).toFixed(2): await mathOfcall(getPrice,coin,spreadCall[`${coin}`])
+    tdBodySell.innerText = testToPicWritePriceSell
+    tdBodyCall.innerText = testToPicWritePriceCall
     tr.append(tdCoin,tdBodyCall,tdBodySell,buttonCoins)
     buttonCoins.classList.add('button-coins')
     tBody.append(tr)
@@ -70,12 +73,15 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
    let coinToChange =  Array.from(coinToBlocks).filter(td => td.innerText === titleBlockCoin.innerText )
    let coinToChangeBuy = coinToChange[0].nextElementSibling
    let coinToChangeSell = coinToChange[0].nextElementSibling.nextElementSibling
-   
-   localStorage.setItem(`${coinToChange[0].innerText}`,'on')
-   console.log(`${coinToChange[0].innerText}`)
+   const setTextInBuyerTd = buyInput?  localStorage.setItem(`${coinToChange[0].innerText}BlockBuy`,`${(buyInput).replace(',','.')}`) :
+      coinToChangeBuy
+   const setTextInSellTd = sellInput? localStorage.setItem(`${coinToChange[0].innerText}BlockSell`,`${sellInput.replace(',','.')}`) : 
+      coinToChangeSell
 
-   buyInput?  localStorage.setItem(`${coinToChange[0].innerText}BlockBuy`,`${(buyInput).replace(',','.')}`) : coinToChangeBuy
-   sellInput? localStorage.setItem(`${coinToChange[0].innerText}BlockSell`,`${sellInput.replace(',','.')}`) : coinToChangeSell
+  localStorage.setItem(`${coinToChange[0].innerText}`,'on')
+    
+     setTextInBuyerTd
+     setTextInSellTd
 
    location.reload()
   
@@ -91,7 +97,6 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
 
 }
 
-
-setInterval(()=> location.reload(),15000)
+setInterval(()=> location.reload(),30000)
 
 export { creatTable }
