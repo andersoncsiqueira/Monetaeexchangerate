@@ -2,7 +2,7 @@ import { coins, spreadCall, spreadsSell, mathOfSell, mathOfcall} from "./util.js
 import { getPrice,} from "./api.js";
 
 
-const titleTHead= ['moeda','compra', 'venda']
+const titleTHead= ['Moeda','Venda', 'Compra']
 const container = document.querySelector('.container')
 const table = document.createElement('table')
 const tHead = document.createElement('thead')
@@ -34,7 +34,7 @@ const renderBodyTable = async ( coin ) => {
     tdCoin.innerText = coin
     tdBodySell.innerText = testToPicWritePriceSell
     tdBodyCall.innerText = testToPicWritePriceCall
-    tr.append(tdCoin,tdBodyCall,tdBodySell,buttonCoins)
+    tr.append(tdCoin,tdBodySell, tdBodyCall,buttonCoins)
     buttonCoins.classList.add('button-coins')
     tBody.append(tr)
 }
