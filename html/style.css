@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+  }
+
+body {
+    background-color: whitesmoke;
+}
+
+table {
+background-color: black;
+border: 5px solid rgb(238, 238, 14);
+border-collapse: separate;
+border-spacing: 5px;
+text-align: center;
+}
+
+
+.titleTb  {
+    background-color: transparent;
+    border: none;
+    background: white;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+.titleTb td {
+    background-color: rgb(78, 82, 81);
+    border: 1px solid black;
+    background: white;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+tbody {
+    color: aliceblue;
+    background-color: black;
+    
+}
+
+tbody td {
+
+    border: 1px solid rgb(216, 216, 231);
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+

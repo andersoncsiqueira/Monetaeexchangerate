@@ -5,14 +5,14 @@ import { getPrice,} from "./api.js";
 const titleTHead= ['Moeda','Venda', 'Compra']
 const container = document.querySelector('.container')
 const table = document.createElement('table')
-const tHead = document.createElement('thead')
+const tHead = document.createElement('table')
 const tBody = document.createElement('tbody')
 const wrapper = document.querySelector('.popup-wrapper')
 const popupClose = document.querySelector('.popup-close')
 const titleBlockCoin = document.querySelector('#titleBlock')
 const buttonBlock = document.querySelector('.buttonPopup')
 const buttonDisblock = document.querySelector('.buttonPopupDisbloc')
-
+const containTable = document.querySelector('.container-table')
 const setTitleTable = ( title ) =>{
 
     let tdTitle = document.createElement('td')
@@ -61,9 +61,11 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
 
 },1000)
 
- table.appendChild(tHead)
+ containTable.appendChild(tHead)
+ tHead.classList.add('titleTb')
  table.appendChild(tBody)
- container.appendChild(table)
+ containTable.appendChild(table)
+ 
 
  buttonBlock.addEventListener('click', event => {
 
