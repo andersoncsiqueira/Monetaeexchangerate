@@ -13,6 +13,7 @@ const titleBlockCoin = document.querySelector('#titleBlock')
 const buttonBlock = document.querySelector('.buttonPopup')
 const buttonDisblock = document.querySelector('.buttonPopupDisbloc')
 const containTable = document.querySelector('.container-table')
+const containButtons = document.querySelector('.cointainbuttons')
 const setTitleTable = ( title ) =>{
 
     let tdTitle = document.createElement('td')
@@ -34,9 +35,13 @@ const renderBodyTable = async ( coin ) => {
     tdCoin.innerText = coin
     tdBodySell.innerText = testToPicWritePriceSell
     tdBodyCall.innerText = testToPicWritePriceCall
-    tr.append(tdCoin,tdBodySell, tdBodyCall,buttonCoins)
-    buttonCoins.classList.add('button-coins')
+    tr.append(tdCoin,tdBodySell, tdBodyCall)
+  
     tBody.append(tr)
+
+    containButtons.append(buttonCoins)
+    buttonCoins.setAttribute('id',`${coin}`)
+    buttonCoins.classList.add('button-coins')
 }
   
 const creatTable = async () => {
@@ -51,7 +56,7 @@ const allButtons = document.querySelectorAll('.button-coins')
 allButtons.forEach(button => {
     button.addEventListener('click', event => {
 
-        titleBlockCoin.innerText =  event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText
+       titleBlockCoin.innerText =  event.target.id
         wrapper.style.display = 'block'
         
         })
