@@ -6,11 +6,14 @@
 
 body {
     background-color: whitesmoke;
+    background-image: linear-gradient(to right, white, whitesmoke);
+    display: flex;
 }
 
 
 .container {
     display: flex;
+    align-items: center;
 }
 .container-table {
 
@@ -23,7 +26,6 @@ border-collapse: separate;
 border-spacing: 5px;
 text-align: center;
 }
-
 
 .titleTb  {
     background-color: transparent;
@@ -45,9 +47,18 @@ tbody {
 }
 
 .cointainbuttons {
+    padding-top: 20px;
     width: 30px;
     height: max-content;
 }
+
+.button-coins {
+
+    background-color: black;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
 
 tbody td {
     border: 1px solid rgb(216, 216, 231);
@@ -55,3 +66,7 @@ tbody td {
     border-spacing: 5px;
 }
 
+#logo {
+
+    width: 30%;
+}
