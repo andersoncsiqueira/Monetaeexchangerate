@@ -21,6 +21,8 @@ const setTitleTable = ( title ) =>{
     tHead.appendChild(tdTitle)
 }
 
+setTimeout(()=> location.reload(),60000)
+
 const renderBodyTable = async ( coin ) => {
     const tr = document.createElement('tr')
     let tdCoin = document.createElement('td')
@@ -51,6 +53,7 @@ titleTHead.forEach(title => setTitleTable(title))
 coins.forEach(async (coin) => renderBodyTable(coin))
 
 setTimeout(()=>{
+  location.reload
 const allButtons = document.querySelectorAll('.button-coins')
 
 allButtons.forEach(button => {
@@ -74,8 +77,8 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
 
  buttonBlock.addEventListener('click', event => {
 
-   let buyInput = event.target.previousElementSibling.previousElementSibling.previousElementSibling.value
-   let sellInput = event.target.previousElementSibling.value
+   let buyInput = document.querySelector('[data-js="input-buyer"]').value
+   let sellInput = document.querySelector('[data-js="input-sell"]').value
    let coinToBlocks = document.querySelectorAll('td')
    let coinToChange =  Array.from(coinToBlocks).filter(td => td.innerText === titleBlockCoin.innerText )
    let coinToChangeBuy = coinToChange[0].nextElementSibling
@@ -104,6 +107,6 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
 
 }
 
-setInterval(()=> location.reload(),30000)
+
 
 export { creatTable }

@@ -8,6 +8,8 @@ body {
     background-color: whitesmoke;
     background-image: linear-gradient(to right, white, whitesmoke);
     display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 
@@ -21,7 +23,9 @@ body {
 
 table {
 background-color: black;
-border: 5px solid rgb(238, 238, 14);
+font-weight: bold;
+border: 5px solid #ffdf00;
+width: 200px;
 border-collapse: separate;
 border-spacing: 5px;
 text-align: center;
@@ -44,9 +48,13 @@ text-align: center;
 tbody {
     color: aliceblue;
     background-color: black;
+    width: 200%;
 }
 
 .cointainbuttons {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
     padding-top: 20px;
     width: 30px;
     height: max-content;
@@ -54,11 +62,23 @@ tbody {
 
 .button-coins {
 
-    background-color: black;
+   background-image: url(../assests/triangle-svgrepo-com.svg);background-size: cover;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 14px;
+    width: 12px;
+    height: 12px;
+    border: none;
+    background-color: transparent;
+    transition: 0.3s ease;
+    
   }
 
+
+  .button-coins:hover {
+
+    transform: scale(1.4);
+  
+  }
 
 tbody td {
     border: 1px solid rgb(216, 216, 231);
@@ -68,5 +88,5 @@ tbody td {
 
 #logo {
 
-    width: 30%;
+    width: 45%;
 }

@@ -9,6 +9,7 @@
     const basePrice = ((Number(sellPrice) + Number(callPrice)) / 2).toFixed(2)
 
 return {sellPrice, callPrice, basePrice }
+
 }
 export { getPrice, urlLastUp };
 

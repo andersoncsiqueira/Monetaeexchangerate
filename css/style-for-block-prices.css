@@ -7,11 +7,64 @@
   .buttonPopup { 
     display: block;
     margin: 20px auto;
-    background: crimson;
+    background: rgb(15, 15, 15);
     color: white;
     border: 0;
     cursor: pointer;
+    border-radius: 5px;
     padding: 6px 10px;
+  }
+
+  .buttonPopupDisbloc {
+    display: block;
+    margin: 20px auto;
+    background: white;
+    color: rgb(8, 8, 8);
+    border: 0;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 6px 10px;
+  }
+
+  .popup-content {
+
+
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+
+  }
+
+  
+
+  .buttons-confirm {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .buttons-confirm button {
+
+    width: 48%;
+    padding: 10%;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+
   }
 
   .popup-wrapper {
@@ -31,8 +84,9 @@
     max-width: 300px;
     margin: 10% auto;
     padding: 20px;
-    background: white;
+    background: #ffdf00;
     position: relative;
+    border-radius: 5px;
   }
 
   .popup-close {
