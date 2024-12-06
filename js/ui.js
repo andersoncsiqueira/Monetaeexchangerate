@@ -29,9 +29,9 @@ const renderBodyTable = async ( coin ) => {
     let tdBodySell = document.createElement('td')
     let tdBodyCall = document.createElement('td')
     let buttonCoins = document.createElement('button')    
-    let testToPicWritePriceSell = localStorage.getItem(`${coin}`) === 'on' ? Number(localStorage.getItem(`${coin}BlockSell`)).toFixed(2):
+    let testToPicWritePriceSell = localStorage.getItem(`${coin}Sell`) === 'on' ? Number(localStorage.getItem(`${coin}BlockSell`)).toFixed(2):
      await mathOfSell(getPrice,coin,spreadsSell[`${coin}`])
-    let testToPicWritePriceCall = localStorage.getItem(`${coin}`) === 'on' ? Number(localStorage.getItem(`${coin}BlockBuy`)).toFixed(2):
+    let testToPicWritePriceCall = localStorage.getItem(`${coin}Buy`) === 'on' ? Number(localStorage.getItem(`${coin}BlockBuy`)).toFixed(2):
       await mathOfcall(getPrice,coin,spreadCall[`${coin}`])
 
     tdCoin.innerText = coin
@@ -78,20 +78,22 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
  buttonBlock.addEventListener('click', event => {
 
    let buyInput = document.querySelector('[data-js="input-buyer"]').value
+   console.log(Boolean(buyInput))
    let sellInput = document.querySelector('[data-js="input-sell"]').value
    let coinToBlocks = document.querySelectorAll('td')
    let coinToChange =  Array.from(coinToBlocks).filter(td => td.innerText === titleBlockCoin.innerText )
    let coinToChangeBuy = coinToChange[0].nextElementSibling
    let coinToChangeSell = coinToChange[0].nextElementSibling.nextElementSibling
-   const setTextInBuyerTd = buyInput?  localStorage.setItem(`${coinToChange[0].innerText}BlockBuy`,`${(buyInput).replace(',','.')}`) :
+   const setTextInBuyerInLocalStorage = buyInput?  localStorage.setItem(`${coinToChange[0].innerText}BlockBuy`,`${(buyInput).replace(',','.')}`) :
       coinToChangeBuy
-   const setTextInSellTd = sellInput? localStorage.setItem(`${coinToChange[0].innerText}BlockSell`,`${sellInput.replace(',','.')}`) : 
+   const setTextInSellInLocalStorage = sellInput? localStorage.setItem(`${coinToChange[0].innerText}BlockSell`,`${sellInput.replace(',','.')}`) : 
       coinToChangeSell
 
-  localStorage.setItem(`${coinToChange[0].innerText}`,'on')
+      buyInput? localStorage.setItem(`${coinToChange[0].innerText}Buy`,'on'):""
+      sellInput?localStorage.setItem(`${coinToChange[0].innerText}Sell`,'on'):""
     
-     setTextInBuyerTd
-     setTextInSellTd
+     setTextInBuyerInLocalStorage
+     setTextInSellInLocalStorage
 
    location.reload()
   
@@ -101,7 +103,10 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
     event.preventDefault()
     let coinToBlocks = document.querySelectorAll('td')
     let coinToChange =  Array.from(coinToBlocks).filter(td => td.innerText === titleBlockCoin.innerText )
-    localStorage.setItem(`${coinToChange[0].innerText}`,'off')
+
+     localStorage.setItem(`${coinToChange[0].innerText}Buy`,'off')
+     localStorage.setItem(`${coinToChange[0].innerText}Sell`,'off')
+
     location.reload()
   })
 
