@@ -1,4 +1,4 @@
-import { urlLastUp } from "./api.js";
+import { getPrice, urlLastUp } from "./api.js";
 
 const coins = [,'USD','EUR','CAD','GBP','AUD','ARS','CLP','CHF','NZD']
 const spreadsSell = {'USD':1.06, 'EUR': 1.06, 'CAD':1.09,'GBP': 1.077,'AUD':1.09,'ARS': 1.75,'CLP': 1.35,'CHF':1.1,'NZD':1.077}
@@ -19,5 +19,13 @@ const mathOfcall =  async (getPrice,counterCoin,spread) => {
         exchangeRate = exchangeRate < 1 ? exchangeRate.toFixed(4) : exchangeRate.toFixed(2)
         return exchangeRate
   }
- 
-  export { coins, spreadCall, spreadsSell, mathOfSell, mathOfcall }
+
+
+  const showCommercialRate =  async (getPrice,counterCoin) => {
+    let exchangeRate = null
+        exchangeRate = await getPrice(urlLastUp,counterCoin,'BRL')
+        exchangeRate = exchangeRate.basePrice
+        return exchangeRate
+  }
+
+  export { coins, spreadCall, spreadsSell, mathOfSell, mathOfcall, showCommercialRate }

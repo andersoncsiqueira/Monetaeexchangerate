@@ -1,4 +1,4 @@
-import { coins, spreadCall, spreadsSell, mathOfSell, mathOfcall} from "./util.js";
+import { coins, spreadCall, spreadsSell, mathOfSell, mathOfcall, showCommercialRate} from "./util.js";
 import { getPrice,} from "./api.js";
 
 
@@ -21,6 +21,9 @@ const setTitleTable = ( title ) =>{
     tHead.appendChild(tdTitle)
 }
 
+
+
+
 setTimeout(()=> location.reload(),60000)
 
 const renderBodyTable = async ( coin ) => {
@@ -34,16 +37,30 @@ const renderBodyTable = async ( coin ) => {
     let testToPicWritePriceCall = localStorage.getItem(`${coin}Buy`) === 'on' ? Number(localStorage.getItem(`${coin}BlockBuy`)).toFixed(2):
       await mathOfcall(getPrice,coin,spreadCall[`${coin}`])
 
+const commerciallOver = async ()=> {
+        tdCoin.innerText = await showCommercialRate(getPrice,coin)
+        tdCoin.classList.add('commercial')       
+       }
+const commercialOut = () => {
+        tdCoin.innerText = coin 
+        tdCoin.classList.remove('commercial')
+       }
+
     tdCoin.innerText = coin
+    tdCoin.setAttribute(`data-js`,`${coin}`)
     tdBodySell.innerText = testToPicWritePriceSell
     tdBodyCall.innerText = testToPicWritePriceCall
     tr.append(tdCoin,tdBodySell, tdBodyCall)
   
     tBody.append(tr)
-
+  
+    tdCoin.addEventListener('mouseover', commerciallOver)
+    tdCoin.addEventListener('mouseout', commercialOut)
+    
     containButtons.append(buttonCoins)
     buttonCoins.setAttribute('id',`${coin}`)
     buttonCoins.classList.add('button-coins')
+
 }
   
 const creatTable = async () => {
@@ -51,6 +68,7 @@ const creatTable = async () => {
 titleTHead.forEach(title => setTitleTable(title))
 
 coins.forEach(async (coin) => renderBodyTable(coin))
+
 
 setTimeout(()=>{
   location.reload
@@ -78,10 +96,10 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
  buttonBlock.addEventListener('click', event => {
 
    let buyInput = document.querySelector('[data-js="input-buyer"]').value
-   console.log(Boolean(buyInput))
+   
    let sellInput = document.querySelector('[data-js="input-sell"]').value
    let coinToBlocks = document.querySelectorAll('td')
-   let coinToChange =  Array.from(coinToBlocks).filter(td => td.innerText === titleBlockCoin.innerText )
+   let coinToChange =  Array.from(coinToBlocks).filter(td => td.dataset.js === titleBlockCoin.innerText )
    let coinToChangeBuy = coinToChange[0].nextElementSibling
    let coinToChangeSell = coinToChange[0].nextElementSibling.nextElementSibling
    const setTextInBuyerInLocalStorage = buyInput?  localStorage.setItem(`${coinToChange[0].innerText}BlockBuy`,`${(buyInput).replace(',','.')}`) :
@@ -102,7 +120,7 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
   buttonDisblock.addEventListener('click', event => {
     event.preventDefault()
     let coinToBlocks = document.querySelectorAll('td')
-    let coinToChange =  Array.from(coinToBlocks).filter(td => td.innerText === titleBlockCoin.innerText )
+    let coinToChange =  Array.from(coinToBlocks).filter(td => td.dataset.js === titleBlockCoin.innerText )
 
      localStorage.setItem(`${coinToChange[0].innerText}Buy`,'off')
      localStorage.setItem(`${coinToChange[0].innerText}Sell`,'off')
