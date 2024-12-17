@@ -4,7 +4,10 @@
     box-sizing: border-box;
   }
 
-html, body {
+  html {
+    
+  }
+body {
     background-color: whitesmoke;
     background-image: linear-gradient(to right, white, whitesmoke);
     display: flex;
