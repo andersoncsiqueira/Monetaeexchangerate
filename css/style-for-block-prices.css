@@ -28,7 +28,6 @@
 
   .popup-content {
 
-
   }
 
   label {
@@ -82,7 +81,6 @@
     text-align: center;
     width: 100%;
     max-width: 300px;
-    margin: 10% auto;
     padding: 20px;
     background: #ffdf00;
     position: relative;

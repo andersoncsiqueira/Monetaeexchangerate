@@ -28,3 +28,16 @@ left: 10px;
   
      
    }
+
+   .popup {
+    font-family: arial;
+    text-align: center;
+    width: 100%;
+    max-width: 250px;
+    margin: auto;
+    margin-top: 35px;
+    padding: 20px;
+    background: #ffdf00;
+    position: relative;
+    border-radius: 5px;
+  }
