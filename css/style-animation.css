@@ -2,9 +2,14 @@
 
 
 .containRockets {
-
+    display: flex;
+    flex-direction: column-reverse;
+    
     height: 300px;
-    border: 1px solid black;
+    width: 220px;
+    border: 1px solid black;        
+
+
 }
 
 .containRockets  img {
@@ -13,3 +18,10 @@ width: 75px;
 height: 75px;
 
 }
+
+.containRockets  img:hover {
+
+  cursor: pointer;
+  transform: scale(1.5);
+    
+    }
