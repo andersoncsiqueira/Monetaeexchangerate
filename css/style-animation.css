@@ -4,11 +4,10 @@
 .containRockets {
     display: flex;
     flex-direction: column-reverse;
-    
-    height: 300px;
-    width: 220px;
-    border: 1px solid black;        
-
+    overflow: hidden;
+    height: 100vh;
+    width: 220px;  
+    position: relative;
 
 }
 
@@ -24,4 +23,72 @@ height: 75px;
   cursor: pointer;
   transform: scale(1.5);
     
+}
+
+#usdRocket {
+
+position: absolute;
+animation: fly-usd 10s infinite;
+animation-timing-function: ease
+        
+}
+
+
+#eurRocket {
+    position: absolute;
+    animation: fly-eur 10s infinite;
+    animation-delay: 2s;
+    animation-timing-function: ease
+}
+
+
+@keyframes fly-usd {
+
+    0% {
+        transform: translate(-75px, 160px); /* Posição inicial */   
     }
+
+    15% {
+        transform: translate(4px, -76px); /* Posição inicial */
+
+    }
+
+
+    25% {
+        transform: translate(14px, -125px); /* Posição inicial */
+
+    }
+
+    50% {
+        transform: translate(34px, -165px); /* Posição inicial */
+
+    }
+    100% {
+        transform: translate(210px, -200px); /* Move 100px para direita e 100px para cima */
+    }
+    
+}
+
+
+@keyframes fly-eur {
+
+    0% {
+        transform: translate(-50px, 135px); /* Posição inicial */
+    }
+
+    25% {
+        transform: translate(34px, -125px); /* Posição inicial */
+
+    }
+
+    50% {
+        transform: translate(120px, -145px); /* Posição inicial */
+
+    }
+
+
+    100% {
+        transform: translate(210px, -250px); /* Move 100px para direita e 100px para cima */
+    }
+    
+}
