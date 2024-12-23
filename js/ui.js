@@ -24,7 +24,7 @@ const setTitleTable = ( title ) =>{
 
 
 
-setTimeout(()=> location.reload(),60000)
+// setTimeout(()=> location.reload(),60000) 
 
 const renderBodyTable = async ( coin ) => {
     const tr = document.createElement('tr')
@@ -93,7 +93,7 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
  containTable.appendChild(table)
  
 
- buttonBlock.addEventListener('click', event => {
+ buttonBlock.addEventListener('click', () => {
 
    let buyInput = document.querySelector('[data-js="input-buyer"]').value
    

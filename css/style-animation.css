@@ -17,30 +17,15 @@
 position: absolute;
 animation: fly-usd 15s infinite;
 animation-timing-function: ease;
+animation-direction: reverse;
+transition: .3s;
+will-change: auto;
 width: 75px;
 height: 75px;
 bottom: -60px;
 }
 
 
-#eurRocket {
-    position: absolute;
-    animation: fly-eur 15s infinite;
-    animation-delay: 2s;
-    animation-timing-function: ease;
-    width: 75px;
-    height: 75px;
-    bottom: -70px;
-}
-
-
-#eurRocket:hover {
-
-    cursor: pointer;
-    animation-play-state: paused;
-    transform: scale(1.5);
-      
-  }
 
 
   #usdRocket:hover {
@@ -60,23 +45,9 @@ bottom: -60px;
     
 
     100% {
-        transform: translate(210px, -290px); /* Move 100px para direita e 100px para cima */
+        transform: translate(210px, -340px); /* Move 100px para direita e 100px para cima */
     }
     
 }
 
 
-@keyframes fly-eur {
-
-    0% {
-        transform: translate(-70px, 80px); /* Posição inicial */
-    }
-
-  
-
-
-    100% {
-        transform: translate(210px, -320px); /* Move 100px para direita e 100px para cima */
-    }
-    
-}

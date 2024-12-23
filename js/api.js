@@ -8,6 +8,9 @@
     const callPrice = datas[`${baseCoin}${counterCoin}`].ask
     const basePrice = ((Number(sellPrice) + Number(callPrice)) / 2).toFixed(2)
 
+
+setTimeout(()=> location.reload(),60000) 
+console.log('oi')
 return {sellPrice, callPrice, basePrice }
 
 }
