@@ -22,10 +22,6 @@ const setTitleTable = ( title ) =>{
 }
 
 
-
-
-// setTimeout(()=> location.reload(),60000) 
-
 const renderBodyTable = async ( coin ) => {
     const tr = document.createElement('tr')
     let tdCoin = document.createElement('td')
@@ -71,7 +67,7 @@ coins.forEach(async (coin) => renderBodyTable(coin))
 
 
 setTimeout(()=>{
-  location.reload
+  //location.reload
 const allButtons = document.querySelectorAll('.button-coins')
 
 allButtons.forEach(button => {
@@ -113,7 +109,8 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
      setTextInBuyerInLocalStorage
      setTextInSellInLocalStorage
 
-   location.reload()
+   //location.reload()
+   
   
 })
 
@@ -130,6 +127,8 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
 
 }
 
-
+setInterval(() => {
+  location.reload();
+}, 60000)
 
 export { creatTable }

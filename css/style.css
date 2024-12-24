@@ -128,16 +128,15 @@ color: green;
 }
 
 .table-rocket {
-background-color: rgba(0, 0, 0, 0.507);
-
-font-weight: bold;
-border: 2px solid #ffdf00;
-width: 200px;
-border-collapse: separate;
-border-spacing: 5px;
-text-align: center;
-box-shadow: 5px 3px 5px 1px rgba(102, 102, 102, 0.596);
-}
+    background-color: #d3cdcd; /* Fundo branco para um visual limpo */
+    border: 2px solid #ffdf00; /* Borda dourada para destaque */
+    width: 100%; /* Ocupa toda a largura disponível */
+    max-width: 600px; /* Limite de largura */
+    border-collapse: collapse; /* Remove espaços entre bordas */
+    text-align: center; /* Centraliza o conteúdo */
+    font-family: 'Arial', sans-serif; /* Fonte limpa e profissional */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
+  } 
 
 .table-rocket  td {
     border-top: none;
@@ -146,6 +145,8 @@ box-shadow: 5px 3px 5px 1px rgba(102, 102, 102, 0.596);
     border-right: none;
     padding: 10px;
     }
+
+
 
 .popup-rocket {
     display: flex; 

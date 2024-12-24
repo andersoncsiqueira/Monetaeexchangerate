@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="style.paisagem.css" media="screen and (orientation:landscape)">
     <link rel="stylesheet" href="style.retrato.css" media="screen and (orientation:portrait)">
     <link rel="stylesheet" href="./css/style-animation.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
     <title>Cotação</title>
 </head>
 <body>
@@ -54,9 +56,10 @@
                 <thead>
                     <tr>
                         <td><img src="/assests/backgrounds/MOEDA.png" alt="" class="img-td"></td>
-                        <td>Máxima do dia </td>
-                        <td>Mínima do dia </td>
+                        <td class="td-head">Máxima do dia </td>
+                        <td class="td-head">Mínima do dia </td>
                     </tr>
+                </thead>
                     <tbody>
                     <tr>
                         <td>USD</td>
@@ -69,7 +72,7 @@
                         <td data-js="MinEur"></td>
                     </tr>
                     </tbody>
-                </thead>
+                <button id="print-button">Baixar banner</button>
             </table>
         </div>
 
