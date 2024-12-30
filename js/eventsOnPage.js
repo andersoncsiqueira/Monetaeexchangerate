@@ -57,7 +57,7 @@ const scoreHighPrices = () => {
     
   }
   
-  console.log(Number(localStorage.getItem("contentForLownUsd")))
+  //console.log(Number(localStorage.getItem("contentForLownUsd")))
   if(usdSell < Number(JSON.parse(localStorage.getItem("contentForLownUsd")))) {
     console.log(Number(localStorage.getItem("contentForLownUsd")))
     localStorage.setItem("contentForLownUsd",usdSell)
@@ -157,9 +157,11 @@ function scheduleClearAt2(key, hour) {
   
   // Exemplo de uso:
   // Substitua 'minhaVariavel' pelo nome da chave que deseja limpar
-  scheduleClearAt('contentForHighUsd',9)
-  scheduleClearAt('contentForHighEur',9)
-  scheduleClearAt2('contentForLownUsd',9)
-  scheduleClearAt2('contentForLownEur',9); 
+  scheduleClearAt('contentForHighUsd',11)
+  scheduleClearAt('contentForHighEur',11)
+  scheduleClearAt2('contentForLownUsd',11)
+  scheduleClearAt2('contentForLownEur',11); 
+
+  
 
   export { eventMouseCommercialOver, eventMouseCommercialOut}
