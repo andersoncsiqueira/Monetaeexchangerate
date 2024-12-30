@@ -180,3 +180,11 @@ color: green;
     width: 65px;
     height: 65px;
 }
+
+
+#logoPopup {
+    background-image: url("../assests/backgrounds/moedapop.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 70px;
+}
