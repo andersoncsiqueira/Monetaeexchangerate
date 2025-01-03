@@ -95,7 +95,7 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
  containTable.appendChild(tHead)
  tHead.classList.add('titleTb')
  table.appendChild(tBody)
- containTable.appendChild(table)
+ //containTable.appendChild(table)
  
 
  buttonBlock.addEventListener('click', () => {
@@ -118,7 +118,7 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
      setTextInBuyerInLocalStorage
      setTextInSellInLocalStorage
 
-   location.reload()
+   //location.reload()
    
   
 })
