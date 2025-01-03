@@ -1,6 +1,7 @@
 import { showCommercialRate } from "./util.js"
 
 
+
 const usdRocket = document.querySelector("#usdRocket")
 const wraperRocket  = document.querySelector('.popup-rocket-Wrapper')
 const closeRocketPopu = document.querySelector('.close-rocket')
@@ -165,3 +166,5 @@ function scheduleClearAt2(key, hour) {
   
 
   export { eventMouseCommercialOver, eventMouseCommercialOut}
+
+  

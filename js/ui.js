@@ -14,6 +14,7 @@ const buttonBlock = document.querySelector('.buttonPopup')
 const buttonDisblock = document.querySelector('.buttonPopupDisbloc')
 const containTable = document.querySelector('.container-table')
 const containButtons = document.querySelector('.cointainbuttons')
+
 const setTitleTable = ( title ) =>{
 
     let tdTitle = document.createElement('td')
@@ -21,10 +22,17 @@ const setTitleTable = ( title ) =>{
     tHead.appendChild(tdTitle)
 }
 
+console.log()
 
-const renderBodyTable = async ( coin ) => {
-    const tr = document.createElement('tr')
-    let tdCoin = document.createElement('td')
+const coinsCollum = document.querySelectorAll('[data-js="coinCol"]')
+
+const renderBodyTable = async ( tdCoin ) => {
+
+  const coin = tdCoin.innerText
+  
+  const tr = document.querySelector(`[data-js="ROW-${coin}"]`)
+    //const tr = document.createElement('tr')
+    //let tdCoin = coin
     let tdBodySell = document.createElement('td')
     let tdBodyCall = document.createElement('td')
     let buttonCoins = document.createElement('button')    
@@ -42,13 +50,13 @@ const commercialOut = () => {
         tdCoin.classList.remove('commercial')
        }
 
-    tdCoin.innerText = coin
+    //tdCoin.innerText = coin
     tdCoin.setAttribute(`data-js`,`${coin}`)
     tdBodySell.innerText = testToPicWritePriceSell
     tdBodyCall.innerText = testToPicWritePriceCall
-    tr.append(tdCoin,tdBodySell, tdBodyCall)
+    tr.append(tdBodySell, tdBodyCall)
   
-    tBody.append(tr)
+    //tBody.append(tr)
   
     tdCoin.addEventListener('mouseover', commerciallOver)
     tdCoin.addEventListener('mouseout', commercialOut)
@@ -61,10 +69,11 @@ const commercialOut = () => {
   
 const creatTable = async () => {
 
-titleTHead.forEach(title => setTitleTable(title))
+//titleTHead.forEach(title => setTitleTable(title))
 
-coins.forEach(async (coin) => renderBodyTable(coin))
+//coins.forEach(async (coin) => renderBodyTable(coin))
 
+coinsCollum.forEach(async (coin) => renderBodyTable(coin))
 
 setTimeout(()=>{
   //location.reload
@@ -109,7 +118,7 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
      setTextInBuyerInLocalStorage
      setTextInSellInLocalStorage
 
-   //location.reload()
+   location.reload()
    
   
 })
