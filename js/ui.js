@@ -118,7 +118,7 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
      setTextInBuyerInLocalStorage
      setTextInSellInLocalStorage
 
-   //location.reload()
+   location.reload()
    
   
 })
