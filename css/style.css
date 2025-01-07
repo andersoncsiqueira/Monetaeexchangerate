@@ -39,20 +39,35 @@ box-shadow: 5px 3px 5px 1px rgba(102, 102, 102, 0.596);
 }
 
 .titleTb  {
-    background-color: white;
+    
+  
+    background-color: whitesmoke;
     border: none;
     border-collapse: separate;
     border-spacing: 5px;
     box-shadow: none;
 }
 
-.titleTb td {
+.contain-tds-title {
+    display: flex;
+   
+}
+
+.tds-title {
+
+    flex: 1;
+    margin: 1px;
     background: white;
     border: 1px solid black;
-   color: #000;
+    color: #000;
     border-collapse: separate;
-    border-spacing: 5px;
+    
 }
+
+.titleTb tbody {
+    background: transparent;
+}
+
 tbody {
     color: aliceblue;
     background-color: black;
@@ -88,7 +103,7 @@ tbody {
   
   }
 
-tbody td {
+.tbody-principal td {
     border: 1px solid rgb(216, 216, 231);
     border-collapse: separate;
     border-spacing: 5px;
