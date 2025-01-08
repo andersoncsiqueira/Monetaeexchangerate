@@ -143,17 +143,23 @@ color: green;
 }
 
 .table-rocket {
-    background-color: #d3cdcd; /* Fundo branco para um visual limpo */
-    border: 2px solid #ffdf00; /* Borda dourada para destaque */
+    background-color: #ffffff; /* Fundo branco para um visual limpo */
+    border: 5px solid #ffdf00; /* Borda dourada para destaque */
     width: 100%; /* Ocupa toda a largura disponível */
-    max-width: 600px; /* Limite de largura */
+    max-width: 700px; /* Limite de largura */
     border-collapse: collapse; /* Remove espaços entre bordas */
     text-align: center; /* Centraliza o conteúdo */
     font-family: 'Arial', sans-serif; /* Fonte limpa e profissional */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
   } 
 
-.table-rocket  td {
+.table-rocket td {
+    height: 100px;
+    font-size: 25px;
+}
+
+
+.to-td {
     border-top: none;
     color: aliceblue;
     border-left: none;
@@ -201,5 +207,28 @@ color: green;
     background-image: url("../assests/backgrounds/logo.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    width: 70px;
+    width: 150px;
+    padding: 5px;
+    margin: auto;
 }
+
+#print-button {
+    margin-bottom: 5px;
+    background: black;
+    color: white;
+    border-radius: 5px;
+}
+
+
+
+#print-button:hover {
+  
+    background: white;
+    color: black;
+   
+}
+
+.td-head {
+    color: black;
+}
+
