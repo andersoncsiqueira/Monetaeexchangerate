@@ -158,10 +158,10 @@ function scheduleClearAt2(key, hour) {
   
   // Exemplo de uso:
   // Substitua 'minhaVariavel' pelo nome da chave que deseja limpar
-  scheduleClearAt('contentForHighUsd',11)
-  scheduleClearAt('contentForHighEur',11)
-  scheduleClearAt2('contentForLownUsd',11)
-  scheduleClearAt2('contentForLownEur',11); 
+  scheduleClearAt('contentForHighUsd',9)
+  scheduleClearAt('contentForHighEur',9)
+  scheduleClearAt2('contentForLownUsd',9)
+  scheduleClearAt2('contentForLownEur',9); 
 
   
 
