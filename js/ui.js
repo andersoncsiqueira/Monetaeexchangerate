@@ -61,8 +61,9 @@ const commercialOut = () => {
     tdCoin.addEventListener('mouseover', commerciallOver)
     tdCoin.addEventListener('mouseout', commercialOut)
     
-    containButtons.append(buttonCoins)
+    
     buttonCoins.setAttribute('id',`${coin}`)
+    containButtons.append(buttonCoins)
     buttonCoins.classList.add('button-coins')
 
 }
