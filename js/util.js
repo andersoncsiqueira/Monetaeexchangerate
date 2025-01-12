@@ -32,4 +32,6 @@ const mathOfcall =  async (getPrice,counterCoin,spread) => {
         return exchangeRate
   }
 
+  console.log('bt tds ok?')
+
   export { coins, spreadCall, spreadsSell, mathOfSell, mathOfcall, showCommercialRate }
