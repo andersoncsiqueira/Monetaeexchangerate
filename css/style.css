@@ -5,10 +5,17 @@
   }
 
   html {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     
   }
 body {
     background-color: whitesmoke;
+    margin-left: 250px;
     background-image: linear-gradient(to right, white, whitesmoke);
     display: flex;
     justify-content: center;
