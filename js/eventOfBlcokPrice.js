@@ -1,9 +1,7 @@
-import {  coins } from "./util.js"
-
-
+import { getPrice, urlLastUp } from "./api.js"
+import {  coins, spreadsSell, mathOfSell, spreadCall,mathOfcall, showCommercialRate } from "./util.js"
 
 const checkSinalForAnimationBuy = () => {
-
 
   let coinsToAnimateBuy = coins.map(coin0 => {
 
@@ -16,8 +14,6 @@ const checkSinalForAnimationBuy = () => {
      coin = coin0
 
     }
-
-
 
 return {item, coin}
 
@@ -53,8 +49,6 @@ return {item, coin}
 
   })
   
-
-  
   coinsToAnimateSell =  coinsToAnimateSell.filter(item => item.coin !== "")
   console.log(coinsToAnimateSell)
 
@@ -64,10 +58,6 @@ return coinsToAnimateSell
 }
 
 
-
-
-
-  
 const setImgBuy= (c) => {
 
 
@@ -114,6 +104,20 @@ const setImgSell= () => {
        document.querySelector(`[data-js="${td.coin}"]`).nextElementSibling.append(lock)
       
   })
+
+
+  tdsSell.forEach( td => {
+
+     document.querySelector(`[data-js="${td.coin}"]`).nextElementSibling.addEventListener("mouseover", async()=> {
+     document.querySelector(`[data-js="${td.coin}"]`).nextElementSibling.innerText = await mathOfSell((getPrice,td.coin,spreadsSell[`${td.coin}`]))
+    console.log(td.coin,getPrice,mathOfSell) 
+    
+    })
+
+  })
+
+      
+
 }
 
 
