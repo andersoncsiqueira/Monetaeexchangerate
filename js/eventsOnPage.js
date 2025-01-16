@@ -1,4 +1,4 @@
-import { showCommercialRate } from "./util.js"
+import { showCommercialRate, coins } from "./util.js"
 
 
 
@@ -60,7 +60,7 @@ const scoreHighPrices = () => {
   
   //console.log(Number(localStorage.getItem("contentForLownUsd")))
   if(usdSell < Number(JSON.parse(localStorage.getItem("contentForLownUsd")))) {
-    console.log(Number(localStorage.getItem("contentForLownUsd")))
+
     localStorage.setItem("contentForLownUsd",usdSell)
     
   }
@@ -161,8 +161,7 @@ function scheduleClearAt2(key, hour) {
   scheduleClearAt('contentForHighUsd',9)
   scheduleClearAt('contentForHighEur',9)
   scheduleClearAt2('contentForLownUsd',9)
-  scheduleClearAt2('contentForLownEur',9); 
-
+  scheduleClearAt2('contentForLownEur',9);
   
 
   export { eventMouseCommercialOver, eventMouseCommercialOut}

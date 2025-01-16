@@ -8,7 +8,7 @@ const iof = 1.011
   
     let exchangeRate = null
         exchangeRate = await getPrice(urlLastUp,counterCoin,'BRL')
-        console.log(exchangeRate, counterCoin )
+
         exchangeRate =(((Number(exchangeRate.sellPrice)+Number(exchangeRate.callPrice))/2)*spread * iof)
         exchangeRate = exchangeRate < 1 ? exchangeRate.toFixed(4) : exchangeRate.toFixed(2)
         return exchangeRate
@@ -32,6 +32,6 @@ const mathOfcall =  async (getPrice,counterCoin,spread) => {
         return exchangeRate
   }
 
-  console.log('bt tds ok?')
+  
 
   export { coins, spreadCall, spreadsSell, mathOfSell, mathOfcall, showCommercialRate }

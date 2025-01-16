@@ -113,7 +113,9 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
    const setTextInSellInLocalStorage = sellInput? localStorage.setItem(`${coinToChange[0].innerText}BlockSell`,`${sellInput.replace(',','.')}`) : 
       coinToChangeSell
 
-      buyInput? localStorage.setItem(`${coinToChange[0].innerText}Buy`,'on'):""
+      buyInput?localStorage.setItem(`${coinToChange[0].innerText}Buy`,'on'):""
+
+
       sellInput?localStorage.setItem(`${coinToChange[0].innerText}Sell`,'on'):""
     
      setTextInBuyerInLocalStorage
@@ -121,7 +123,6 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
 
    location.reload()
    
-  
 })
 
   buttonDisblock.addEventListener('click', event => {
@@ -140,5 +141,7 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
 setInterval(() => {
   location.reload();
 }, 60000)
+
+
 
 export { creatTable }
