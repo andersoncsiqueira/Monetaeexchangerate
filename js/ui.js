@@ -38,7 +38,7 @@ const renderBodyTable = async ( tdCoin ) => {
     //let buttonCoins = document.createElement('button')    
     let testToPicWritePriceSell = localStorage.getItem(`${coin}Sell`) === 'on' ? Number(localStorage.getItem(`${coin}BlockSell`)).toFixed(2) > await mathOfSell(getPrice,coin,spreadsSell[`${coin}`])? Number(localStorage.getItem(`${coin}BlockSell`)).toFixed(2):await mathOfSell(getPrice,coin,spreadsSell[`${coin}`]):
      await mathOfSell(getPrice,coin,spreadsSell[`${coin}`])
-    let testToPicWritePriceCall = localStorage.getItem(`${coin}Buy`) === 'on' ? Number(localStorage.getItem(`${coin}BlockBuy`)).toFixed(2) < await mathOfcall(getPrice,coin,spreadCall[`${coin}`])? Number(localStorage.getItem(`${coin}BlockBuy`)).toFixed(2):await mathOfcall(getPrice,coin,spreadCall[`${coin}`]):
+    let testToPicWritePriceCall = localStorage.getItem(`${coin}Buy`) === 'on' ? Number(localStorage.getItem(`${coin}BlockBuy`)).toFixed(2) :
       await mathOfcall(getPrice,coin,spreadCall[`${coin}`])
 
 const commerciallOver = async ()=> {
