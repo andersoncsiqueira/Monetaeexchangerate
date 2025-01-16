@@ -106,7 +106,7 @@ const setImgSell= () => {
   tdsSell.forEach(td => {
 
     const lock = document.createElement('img')
-    lock.src = "../assests/bloqueado.svg"
+    lock.src = "bloqueado.svg"
     lock.classList.add("lockicon")
     lock.alt = "cadeado"
 
