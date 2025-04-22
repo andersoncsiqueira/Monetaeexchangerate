@@ -1,8 +1,10 @@
  // API AWESOMEAPI 
+ const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // Proxy público (use apenas para testes)
  const urlLastUp = "https://economia.awesomeapi.com.br/last/"
 
- const getPrice = async (urlLastUp,baseCoin,counterCoin) => {
-    const response = await fetch(`${urlLastUp}${baseCoin}-${counterCoin}`)
+ const soma = (proxyUrl+urlLastUp)
+ const getPrice = async (soma,baseCoin,counterCoin) => {
+    const response = await fetch(`${soma}${baseCoin}-${counterCoin}`)
    
     const datas = await response.json() 
     const sellPrice = datas[`${baseCoin}${counterCoin}`].bid
