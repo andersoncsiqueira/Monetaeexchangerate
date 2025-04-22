@@ -1,4 +1,4 @@
-import { getPrice, urlLastUp } from "./api.js"
+import { getPrice, apiBaseUrl } from "./api.js"
 import {  coins, spreadsSell, mathOfSell, spreadCall,mathOfcall, showCommercialRate } from "./util.js"
 
 const checkSinalForAnimationBuy = () => {
@@ -21,7 +21,7 @@ return {item, coin}
 
 
     coinsToAnimateBuy =  coinsToAnimateBuy.filter(item => item.coin !== "")
-    console.log(coinsToAnimateBuy)
+   
   return coinsToAnimateBuy
 
 
@@ -50,7 +50,7 @@ return {item, coin}
   })
   
   coinsToAnimateSell =  coinsToAnimateSell.filter(item => item.coin !== "")
-  console.log(coinsToAnimateSell)
+  
 
 return coinsToAnimateSell
 
@@ -85,13 +85,8 @@ const setImgBuy= (c) => {
 }
 
 const setImgSell= () => {
-
-
   
   let tdsSell = checkSinalForAnimationSell()
-
-  console.log(tdsSell)
-
 
   tdsSell.forEach(td => {
 
@@ -116,10 +111,7 @@ const setImgSell= () => {
 
   })
 
-      
-
 }
-
 
 setTimeout(setImgSell,1000)
 setTimeout(setImgBuy,2000)
