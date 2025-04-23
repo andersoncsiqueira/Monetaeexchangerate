@@ -24,8 +24,16 @@ const apiBaseUrl = "https://economia.awesomeapi.com.br/last/";
 
 const getPrice = async (baseCoin, counterCoin) => {
   try {
-    console.log(`${proxyUrl}${apiBaseUrl}${baseCoin}-${counterCoin}`)
-    const response = await fetch(`${proxyUrl}${apiBaseUrl}${baseCoin}-${counterCoin}`);
+    
+    const response = await fetch(`
+      ${proxyUrl}${apiBaseUrl}${baseCoin}-${counterCoin}`,{
+        headers: {
+          'Content-Type': 'string',
+          'Authorization': 'Bearer seu-token-aqui',
+          
+        }
+      }
+    );
     
     if (!response.ok) {
       throw new Error(`Erro HTTP: ${response.status}`);

@@ -140,7 +140,7 @@ popupClose.addEventListener('click', ()=> wrapper.style.display = 'none')
 
 setInterval(() => {
   location.reload();
-}, 60000)
+}, 6000000)
 
 
 
