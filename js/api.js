@@ -19,14 +19,14 @@ export { getPrice, urlLastUp };
 */ 
 
 
-const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // Proxy público (apenas para desenvolvimento)
+//const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // Proxy público (apenas para desenvolvimento)
 const apiBaseUrl = "https://economia.awesomeapi.com.br/last/";
 
 const getPrice = async (baseCoin, counterCoin) => {
   try {
     
     const response = await fetch(`
-      ${proxyUrl}${apiBaseUrl}${baseCoin}-${counterCoin}`,  {
+      ${apiBaseUrl}${baseCoin}-${counterCoin}`,  {
          method: 'GET',
          headers: {
             'x-api-key': 'a0bf8b0dc814d2132d172eccac431afed3c0c6fa11a6cf1d7b592c71034479ce'
