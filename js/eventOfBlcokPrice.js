@@ -1,4 +1,4 @@
-import { getPrice, apiBaseUrl } from "./api.js"
+import { getPrice, newApiBaseUrl } from "./api.js"
 import {  coins, spreadsSell, mathOfSell, spreadCall,mathOfcall, showCommercialRate } from "./util.js"
 
 const checkSinalForAnimationBuy = () => {

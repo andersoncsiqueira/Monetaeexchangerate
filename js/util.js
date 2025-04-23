@@ -1,4 +1,4 @@
-import { getPrice, apiBaseUrl } from "./api.js";
+import { getPrice, newApiBaseUrl } from "./api.js";
 
 const coins = ['USD','EUR','CAD','GBP','AUD','ARS','CLP','CHF','NZD']
 const spreadsSell = {'USD':1.06, 'EUR': 1.06, 'CAD':1.09,'GBP': 1.077,'AUD':1.09,'ARS': 1.75,'CLP': 1.35,'CHF':1.1,'NZD':1.077}

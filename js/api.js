@@ -21,12 +21,14 @@ export { getPrice, urlLastUp };
 
 //const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // Proxy público (apenas para desenvolvimento)
 const apiBaseUrl = "https://economia.awesomeapi.com.br/last/";
+const newApiBaseUrl = "https://awesomeapi-proxy-monetae-production.up.railway.app/moeda?base="
 
 const getPrice = async (baseCoin, counterCoin) => {
+  console.log(`${newApiBaseUrl}${baseCoin}&target=${counterCoin}`)
   try {
     
     const response = await fetch(`
-      ${apiBaseUrl}${baseCoin}-${counterCoin}`,  {
+      ${newApiBaseUrl}${baseCoin}&target=${counterCoin}`,  {
          method: 'GET',
          headers: {
             'x-api-key': 'a0bf8b0dc814d2132d172eccac431afed3c0c6fa11a6cf1d7b592c71034479ce'
@@ -60,4 +62,4 @@ const getPrice = async (baseCoin, counterCoin) => {
   }
 };
 
-export { getPrice, apiBaseUrl };
+export { getPrice, newApiBaseUrl };
