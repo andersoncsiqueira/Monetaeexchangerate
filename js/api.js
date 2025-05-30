@@ -21,7 +21,8 @@ export { getPrice, urlLastUp };
 
 //const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // Proxy público (apenas para desenvolvimento)
 const apiBaseUrl = "https://economia.awesomeapi.com.br/last/";
-const newApiBaseUrl = "https://awesomeapi-proxy-monetae-production.up.railway.app/moeda?base="
+const newApiBaseUrl = "https://awesomeapi-proxy-monetae-production-f336.up.railway.app/moeda?base="
+//awesomeapi-proxy-monetae-production-f336.up.railway.app
 
 const getPrice = async (baseCoin, counterCoin) => {
   console.log(`${newApiBaseUrl}${baseCoin}&target=${counterCoin}`)
