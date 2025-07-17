@@ -22,7 +22,7 @@ const setTitleTable = ( title ) =>{
     tHead.appendChild(tdTitle)
 }
 
-console.log()
+console.log("IOF  Atualizado 17/07/25")
 
 const coinsCollum = document.querySelectorAll('[data-js="coinCol"]')
 
